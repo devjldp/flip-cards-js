@@ -1,0 +1,144 @@
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: rgb(9, 74, 136);
+}
+
+.card{
+  position: relative;
+  width: 300px;
+  height: 350px;
+  margin: 1%;
+  perspective: 600px;
+}
+
+.card .card__face--front img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+}
+
+.title{
+  width: 80%;
+  position: absolute;
+  bottom: 0px;
+  background-color: #000000;
+  opacity: 0.8;
+  color: #fafafa;
+  text-align: center;
+  /*To center*/
+  left: 50%;
+  transform: translateX(-50%); /* Centramos horizontalmente usando una transformación */
+}
+
+.card__inner{
+  width: 100%;
+  height: 100%;
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.card__inner.is-flipped {
+  transform: rotateY(180deg);
+  /* transform: scale(1.5); */
+}
+
+.card__face{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 5px 10px #000000;
+}
+
+.card__face--back{
+  transform: rotateY(180deg);
+  background-color: bisque;
+  overflow-y: scroll;
+  /* transform: scale(1.5); */
+}
+
+
+.info{
+  padding: 5px;
+  font-size: 12pt;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.card .face{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 2000ms;
+}
+
+.card .front{
+  transform: perspective(600px) rotateY(0deg);
+  box-shadow: 0 5px 10px #000000;
+  /* justify-content: center; */
+  /* text-align: center; */
+}
+
+
+
+.card .back {
+  transform: perspective(600px) rotateY(180deg);
+  background: rgb(3, 35, 54);
+  padding: 5px;
+  color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+
+}
+
+.card:hover .front{
+  transform: perspective(600px) rotateY(180deg)
+}
+
+.card:hover .back{
+  transform-origin: center;
+  transform: perspective(600px) rotateY(360deg);
+  transform: scale(1.5);
+  /* scroll-behavior: auto; */
+  overflow-y: scroll;
+  z-index: 5;
+}
+
